@@ -1,10 +1,31 @@
 package org.launchcode.studio7;
 
-public class CD {
+import java.util.ArrayList;
 
-    // TODO: Implement your custom interface.
+public class CD extends BaseDisc implements OpticalDisc {
 
-    // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
-    //  need to be declared separately.
+    public CD (String title, boolean canWrite, ArrayList<String> data) {
+        super(title, canWrite, data);
+        this.storageCapacity = 3000;
+    }
+
+    @Override
+    public String spinDisc() {
+        return "A CD spins at 800 rpm.";
+    }
+
+    @Override
+    public String play() {
+        return this.title + " is now playing.";
+    }
+
+    @Override
+    public String contents() {
+        String content = "";
+        for (String info : data) {
+            content += info + "\n";
+        }
+        return this.title + ": \n" + content;
+    }
 
 }
